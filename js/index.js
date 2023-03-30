@@ -1,4 +1,4 @@
-import { setAppHeight, createChild } from "./utils.js";
+import { setAppHeight } from "./utils.js";
 
 (() => {
   setAppHeight();
