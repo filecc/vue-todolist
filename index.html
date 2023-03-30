@@ -13,14 +13,14 @@
 
 <body>
   <div id="app">
-    <div class="container w-100 h-100 justify-content-center align-items-center">
+    <div class="container w-100 h-100 justify-content-center align-items-center ">
       <div class="row w-100 h-100 justify-content-center align-items-center mx-auto">
-        <div class="col-7 text-center">
-          <h1 class="mb-4">Lista della spesa</h1>
+        <div class="listContainer col-12 col-md-7 col-lg-4 text-center p-4 rounded shadow">
+          <h1 class="mb-4 text-white">Lista della spesa</h1>
           <div class="row gx-0">
             <div class="col-12 position-relative">
               <div class="d-flex justify-content-between gap-2 mb-2">
-                <input @keyup.enter="add()" v-model="newIngredient" class="input-group-text w-100" type="text">
+                <input @keyup.enter="add()" v-model="newIngredient" class="input-group-text w-100" type="text" placeholder="Aggiungi qualcosa..." autofocus>
                 <button @click="add" class="btn btn-success"><i class="fa-solid fa-add"></i></button>
               </div>
               <Transition name="error">
@@ -29,22 +29,19 @@
             </div>
 
 
-            <div class="col-12 text-center mt-5 border rounded p-2 d-flex justify-content-between align-items-center">
+            <div class="col-12 text-center mt-3 p-2 d-flex justify-content-between align-items-center">
 
-              <div class="w-100">
+              <div class="w-100 h-100">
                 <p v-if="ingredients.length === 0">La tua lista è vuota.</p>
-                <ul class="list-unstyled text-start">
-
-
-
+                <ul class="list-unstyled text-start m-0 w-100">
 
                   <li @click="complete(index)" :class="ingredient.completed && 'text-decoration-line-through' "
-                      class="mb-3" v-for="ingredient, index in ingredients" :key="index">
+                       v-for="ingredient, index in ingredients" :key="index">
 
                     <div class="d-flex justify-content-between align-items-center">
                       {{ingredient.name}}
 
-                      <button class="btn btn-outline-danger" @click.stop="deleteItem(index)">
+                      <button class="btn btn-danger" @click.stop="deleteItem(index)">
                         <i class="fa-solid fa-trash"></i>
                       </button>
                     </div>

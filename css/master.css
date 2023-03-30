@@ -2,21 +2,41 @@
     --app-height: 100%;
 }
 
+body{
+    background: linear-gradient(to right top, #4E7291, #BC98F1);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
 
 #app {
+    margin-top: 10%;
     transition: all .3s;
     width: 100%;
-    height: 100vh;
-    height: var(--app-height);
+    
+   
+}
+.listContainer{
+    background-color: #395267;
 }
 
 li {
     text-transform: capitalize;
+    color: white;
+    margin-bottom: 1rem;
+    border-bottom: 1px dashed white;
+    padding-bottom: .5rem;
 }
 
+li:last-child{
+    margin: 0;
+    border: none;
+    padding-bottom: 0;
+}
 li:hover {
     cursor: pointer;
 }
+
 
 .error-enter-active {
     animation: error .3s;
