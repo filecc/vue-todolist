@@ -1,0 +1,18 @@
+:root {
+    --app-height: 100%;
+}
+
+
+#app{
+    width: 100%;
+    height: 100vh;
+    height: var(--app-height);
+}
+
+li{
+    text-transform: capitalize;
+}
+li:hover{
+    cursor: pointer;
+}
+ 

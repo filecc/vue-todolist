@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="./css/master.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="container w-100 h-100 justify-content-center align-items-center">
+      <div class="row w-100 h-100 justify-content-center align-items-center mx-auto">
+        <div class="col-7 text-center">
+          <h1 class="mb-4">Lista della spesa</h1>
+          <div class="row">
+            <div class="col-12">
+
+              <div class="d-flex justify-content-between gap-2">
+                <input v-model="newIngredient" class="input-group-text w-100" type="text">
+                <button @click="add" class="btn btn-primary"><i class="fa-solid fa-add"></i></button>
+              </div>
+              <div v-if="error" class="text-danger mt-2">Non può essere vuoto</div>
+            </div>
+
+
+            <div class="col-12 text-center mt-5 border rounded p-2 d-flex justify-content-between align-items-center">
+
+              <div class="w-100">
+                <p v-if="ingredients.length === 0">La tua lista è vuota.</p>
+                <ul class="list-unstyled text-start">
+
+                  <li @click="complete(index)" :class="ingredient.completed && 'text-decoration-line-through' "
+                      class="mb-3" v-for="ingredient, index in ingredients" :key="index">
+
+                    <div class="d-flex justify-content-between align-items-center">
+                      {{ingredient.name}}
+
+                      <button class="btn btn-outline-danger" @click.stop="deleteItem(index)">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </div>
+
+                  </li>
+                </ul>
+
+              </div>
+
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script type="module" src="./js/index.js"></script>
+</body>
+
+</html>
